@@ -9,6 +9,12 @@ body{
     justify-content: center;
     align-items: center;
 }
+.maj{
+    position: absolute;
+    color: green;
+    bottom: 5px;
+    right: 15px;
+}
 #content{
     position: relative;
     background: red;
