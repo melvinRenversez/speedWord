@@ -14,6 +14,7 @@ var currentLetter = ""
 var x
 var Text = ""
 var sizeLetter
+var time = 0
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 allAnswers = []
@@ -41,6 +42,7 @@ function printAnswer() {
         });
     }
     listAnswer.innerHTML = Text
+    listAnswer.classList.remove("disabled")
 }
 
 function generate(){
@@ -68,3 +70,10 @@ function verification() {
         }
     }
 }
+
+function startTimer() {
+    time++
+    console.log(time)
+}
+
+setInterval(startTimer, 1000)
