@@ -14,7 +14,10 @@ var currentLetter = ""
 var x
 var Text = ""
 var sizeLetter
-var time = 0
+var time = "0m 0s"
+var m = 0
+var s = 0
+var timerInterval
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 allAnswers = []
@@ -22,7 +25,7 @@ allAnswers = []
 sizeLetter = alphabet.length
 
 sendButton.addEventListener("click", verification)
-startButton.addEventListener("click", generate)
+startButton.addEventListener("click", start)
 
 document.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
@@ -45,6 +48,11 @@ function printAnswer() {
     listAnswer.classList.remove("disabled")
 }
 
+function start() {
+    generate()
+    timerInterval = setInterval(startTimer, 1000)   
+}
+
 function generate(){
     startButton.classList.remove("active")
     content.classList.remove("disabled")
@@ -54,6 +62,7 @@ function generate(){
         currentLetter = alphabet[x]
     }else{
         letterText.innerHTML = "Finish"
+        clearInterval(timerInterval)
         printAnswer()
     }
 }
@@ -72,8 +81,12 @@ function verification() {
 }
 
 function startTimer() {
-    time++
-    console.log(time)
+    s++
+    if (s == 60) {
+        m++
+        s = 0
+    }
+    time = m + "m " + s + "s"
+    timer.innerHTML = time
+    console.log()
 }
-
-setInterval(startTimer, 1000)
