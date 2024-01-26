@@ -2,31 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #EAE0C5;
+    font-size: 18px;
 }
 body{
     display: flex;
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background:#034147;
 }
 .maj{
     position: absolute;
     color: green;
-    font-size: 20px;
-    font-weight:1000;
+    font-size: 20px !important;
+    font-weight:1000 !important;
     bottom: 5px;
     right: 15px;
 }
 #content{
     position: relative;
     background: red;
-    height: 250px;
+    height: 280px;
     width: 450px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: #096E70;
+    box-shadow: 5px 5px 10px #000;
 }
 #content.disabled > *{
     display: none;
@@ -47,6 +52,7 @@ input{
     border: none;
     height: 25px;
     padding-left: 5px;
+    background: #D9A637;
 }
 button{
     width: 100px;
@@ -55,6 +61,7 @@ button{
     outline: none !important;
     border: none;
     cursor: pointer;
+    background: #034147;
 }
 #start{
     position: absolute;
@@ -64,11 +71,12 @@ button{
     display: block;
 }
 #listAnswer{
-    background: blue;
+    background: #C1681B;
     position: absolute;
     min-width: 200px;
-    height: 500px;
+    height: 580px;
     padding: 20px 50px;
     right: -60%;
     border-radius: 20px;
+    box-shadow: 5px 5px 10px #000;
 }

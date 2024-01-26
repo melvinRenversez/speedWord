@@ -18,14 +18,25 @@ var time = "0m 0s"
 var m = 0
 var s = 0
 var timerInterval
+var replay = false
 
 alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 allAnswers = []
 
 sizeLetter = alphabet.length
 
-sendButton.addEventListener("click", verification)
 startButton.addEventListener("click", start)
+sendButton.addEventListener("click", ()=>{
+    if (replay){
+        alphabet = help
+        generate()
+        console.log('restart')
+        listAnswer.classList.add("disabled")
+        sendButton.innerHTML = "repondre"
+    }else{
+        verification()
+    }
+})
 
 document.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
@@ -62,6 +73,8 @@ function generate(){
         currentLetter = alphabet[x]
     }else{
         letterText.innerHTML = "Finish"
+        sendButton.innerHTML = "Replay"
+        replay = true
         clearInterval(timerInterval)
         printAnswer()
     }
